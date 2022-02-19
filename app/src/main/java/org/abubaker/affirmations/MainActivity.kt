@@ -37,3 +37,11 @@ class MainActivity : AppCompatActivity() {
         mBinding.recyclerView.setHasFixedSize(true)
     }
 }
+
+/**
+ * To display scrollable list of data we need:
+ * 1. item - One data item of the list to display.
+ * 2. Adapter - Takes data and prepares it for RecyclerView to display.
+ * 3. ViewHolders - A pool of views for RecyclerView to use and reuse to display list of data.
+ * 4. RecyclerView - Views on screen
+ */
