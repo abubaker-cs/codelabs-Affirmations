@@ -55,6 +55,7 @@ class ItemAdapter(
 
             // stringResourceId = parameter defined in the model/Affirmation.kt file
             holder.binding.itemTitle.text = context.resources.getString(item.stringResourceId)
+            holder.binding.itemImage.setImageResource(item.imageResourceId)
 
         }
 
