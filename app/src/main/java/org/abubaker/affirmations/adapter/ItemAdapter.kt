@@ -28,14 +28,15 @@ class ItemAdapter(
      * Create new views (invoked by the layout manager)
      */
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        // create a new view
-        // val adapterLayout = LayoutInflater.from(parent.context).inflate(R.layout.list_item, parent, false)
 
+        // We are getting the current Context
         val layoutInflater = LayoutInflater.from(context)
 
+        // Getting reference of the RecyclerView from the XML file.
         val mBinding: ListItemBinding =
             DataBindingUtil.inflate(layoutInflater, R.layout.list_item, parent, false)
 
+        // Binding the ViewHolder
         return ViewHolder(mBinding)
     }
 
@@ -46,8 +47,10 @@ class ItemAdapter(
         val item = list[position]
 
         if (holder is ViewHolder) {
-            // holder.textView.text = context.resources.getString(item.stringResourceId)
+
+            // stringResourceId = parameter defined in the model/Affirmation.kt file
             holder.binding.itemTitle.text = context.resources.getString(item.stringResourceId)
+
         }
 
     }
