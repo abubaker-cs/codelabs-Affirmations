@@ -12,7 +12,7 @@ import org.abubaker.affirmations.databinding.ListItemBinding
 import org.abubaker.affirmations.model.Affirmation
 
 /**
- * Adapter for the [RecyclerView] in [MainActivity]. Displays [Affirmation] data object.
+ * Adapter for the [RecyclerView] in the [MainActivity]. Displays [Affirmation] data object.
  */
 class ItemAdapter(
     private val context: Context,
@@ -21,6 +21,11 @@ class ItemAdapter(
 
     /**
      * A ViewHolder describes an item view and metadata about its place within the RecyclerView.
+     *
+     * It provides a reference to the views for each data item. Complex data items may need more
+     * than one view per item, and you provide access to all the views for a data item in a view holder.
+     *
+     * Note that each data item is just an Affirmation object.
      */
     inner class ViewHolder(val binding: ListItemBinding) : RecyclerView.ViewHolder(binding.root)
 
@@ -32,7 +37,7 @@ class ItemAdapter(
         // We are getting the current Context
         val layoutInflater = LayoutInflater.from(context)
 
-        // Getting reference of the RecyclerView from the XML file.
+        // Getting reference of the RecyclerView from the XML file to create a new view-item
         val mBinding: ListItemBinding =
             DataBindingUtil.inflate(layoutInflater, R.layout.list_item, parent, false)
 
@@ -56,7 +61,7 @@ class ItemAdapter(
     }
 
     /**
-     * Gets the number of items in the list
+     * Return the size of your dataset (invoked by the layout manager)
      */
     override fun getItemCount(): Int {
         return list.size
